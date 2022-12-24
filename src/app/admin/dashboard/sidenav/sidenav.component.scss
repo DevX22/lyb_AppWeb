@@ -1,0 +1,84 @@
+@import '/src/app/share/const/color_const';
+@import '/src/app/share/const/divices.responsive';
+
+h6{
+  color: $textColor;
+}
+
+#subMenu-one{
+  cursor: pointer;
+}
+
+#subMenu-two{
+  cursor: pointer;
+}
+
+#subMenu-three{
+  cursor: pointer;
+}
+
+#subMenu-four{
+  cursor: pointer;
+}
+
+#subMenu-five{
+  cursor: pointer;
+}
+
+.profile-details{
+  .bx-log-out{
+    font-size: 1.5em;
+    color: $textColor;
+    transition: color transform 0.3s;
+    &:hover{
+      color: $ColorRed;
+      transform: translateX(5px);
+    }
+  }
+}
+
+.close .logo-details i{
+  margin: 0 auto;
+  padding-left: 10px;
+  color: $textColor;
+  min-height: 55px;
+}
+
+.open .logo-details i{
+  scale: 1;
+  margin: 0 auto;
+  color: $textColor;
+  min-height: 75px;
+  transition: scale 0.3s linear;
+  :hover{
+    scale: 1.2;
+    padding-top: 5px;
+    transition: scale 0.3s linear;
+  }
+}
+
+.close{
+  .logo-details{
+    i{
+      img{
+        height: 55px;
+        @include movil{
+          height: 75px;
+        }
+      }
+    }
+  }
+}
+
+.open{
+  .logo-details{
+    i{
+      img{
+        height: 75px;
+        @include movil{
+          height: 110px;
+        }
+      }
+    }
+  }
+}

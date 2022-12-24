@@ -1,0 +1,18 @@
+$small_with_movil:450px;
+$small_with_tablet:850px;
+
+@mixin modal-background{
+    background-color: aqua;
+
+}
+@mixin movil{
+    @media (max-width:$small_with_movil){
+        @content;
+    }
+}
+
+@mixin tablet{
+     @media (min-width:#{$small_with_movil + 1px}) and (max-width:$small_with_tablet) {
+        @content;
+    }
+}

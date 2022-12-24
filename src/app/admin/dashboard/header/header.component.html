@@ -1,0 +1,57 @@
+<header>
+  <div id="home" class="home-section close">
+    <div class="home-content">
+      <i (click)="activeMenu()" class="fa-solid fa-bars bx-menu"></i>
+      <span class="text"></span>
+    </div>
+    <div class="user_seccion_header">
+
+      <div class="user-notifications">
+        <div class="notifications" (click)="muneNotifications()">
+          <i class="fa-solid fa-bell"></i>
+          <i class="fa-solid fa-circle notification-count"><p>8</p></i>
+        </div>
+      </div>
+
+      <img (click)="menuUser()" src="{{user.avatar}}" alt="usuario_avatar">
+
+      <div class="sub-menu-wrap">
+        <div class="sub-menu">
+          <div class="user-info">
+            <img src="{{user.avatar}}" alt="user-avatar">
+            <h2>{{user.nombreApellido}}</h2>
+          </div>
+          <hr>
+
+          <a href="" class="sub-menu-link">
+            <i class="fa-solid fa-user-pen"></i>
+            <p>Editar Perfil</p>
+            <span><i class="fa-solid fa-chevron-right"></i></span>
+          </a>
+          <a href="" class="sub-menu-link">
+            <i class="fa-solid fa-user-gear"></i>
+            <p>Ajustes y privacidad</p>
+            <span><i class="fa-solid fa-chevron-right"></i></span>
+          </a>
+          <a href="" class="sub-menu-link">
+            <i class="fa-solid fa-handshake-angle"></i>
+            <p>Ayuda y Soporte</p>
+            <span><i class="fa-solid fa-chevron-right"></i></span>
+          </a>
+          <a href="" class="sub-menu-link">
+            <i class="fa-solid fa-comments"></i>
+            <p>Mensajes</p>
+            <span><i class="fa-solid fa-chevron-right"></i></span>
+          </a>
+          <hr>
+          <a (click)="cerrarSesion()" class="sub-menu-link">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <p>Cerrar Sesión</p>
+            <span><i class="fa-solid fa-chevron-right"></i></span>
+          </a>
+        </div>
+      </div>
+      <a class="sign-off" (click)="cerrarSesion()"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+    </div>
+  </div>
+</header>

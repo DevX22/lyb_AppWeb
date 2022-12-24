@@ -1,0 +1,5 @@
+<carousel [interval]="timer" [isAnimated]="true" [isAnimated]="isAnimated" [noPause]="false" >
+  <slide *ngFor="let img of imagenes">
+    <img height="200px" width="200px" [src]="[img.imgUrl]" alt="{{ img.nombreImg }}" class="{{clasecss}}" />
+  </slide>
+</carousel>

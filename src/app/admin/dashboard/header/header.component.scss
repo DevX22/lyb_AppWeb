@@ -1,0 +1,243 @@
+@import '/src/app/share/const/color_const';
+@import '/src/app/share/const/divices.responsive';
+
+.home-section{
+  display: flex;
+  position: fixed;
+  background: $bgColor;
+  top: 0;
+  height: 60px;
+  left: 18.1rem;
+  width: calc(100% - 18.1rem);
+  transition: all 0.5s ease;
+  @include tablet{
+    left: 15.5rem;
+    width: calc(100% - 15.5rem);
+    transition: all 0.5s ease;
+  }
+  @include movil{
+    left: 0rem;
+    width: 100%;
+    background: $bgColor02;
+  }
+}
+.home-section.close{
+  left: 5rem;
+  width: calc(100% - 5rem);
+  transition: all 0.5s ease;
+  @include movil{
+    left: 0rem;
+    width: 100%;
+  }
+}
+.home-section .home-content{
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.home-section .home-content .bx-menu,
+.home-section .home-content .text{
+  color: #e1e1e1;
+  font-size: 35px;
+}
+.home-section .home-content .bx-menu{
+  margin: 0 15px;
+  cursor: pointer;
+}
+.home-section .home-content .text{
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.user_seccion_header{
+  width: 100%;
+  padding: 0 7.1rem;
+  display: flex;
+  align-items: center;
+  justify-content:end;
+  position: relative;
+  img{
+    padding: 5px;
+    height: 55px;
+    width: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 14px 0 12px;
+    background: $borderColor;
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+  .user-notifications{
+    display: flex;
+    width: 100%;
+    align-content: center;
+    justify-content: end;
+    margin: 10px 20px;
+    .notifications{
+      width: 27px;
+      height: 27px;
+      cursor: pointer;
+      &:hover{
+        animation-name: notificationsInto;
+        animation-duration: 0.7s;
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+      }
+      .fa-bell{
+        position: relative;
+        color: $textColor;
+        font-size: 1.7rem;
+        padding: 0;
+        margin: 0;
+        //margin: 10px 20px;
+      }
+      .notification-count{
+        position: relative;
+        font-size: 1.2rem;
+        margin: 0;
+        padding: 0;
+        top: -35px;
+        left: 10px;
+        &::before{
+          color: $ColorRedDark;
+        }
+        p{
+          position: relative;
+          top: -16px; 
+          left: 5px; //dos digiros 2px //un digito 5px ==> cantidad de notificaciones
+          color: #fff;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+  //sub menu user
+  .sub-menu-wrap{
+    position: absolute;
+    top: 105%;
+    right: 3.55rem;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    &.open-wrap{
+      max-height: 400px;
+    }
+    &::before{
+      content: "";
+      position: absolute;
+      top: -100px;
+      left: 125px;
+      width: 0;
+      height: 0;
+      border-right: 50px solid transparent;
+      border-top: 100px solid transparent;
+      border-left: 50px solid transparent;
+      border-bottom: 15px solid $bgColor;
+      z-index: -1;
+      transition: left 0.3s;
+      @include movil{
+        left: 172px;
+      }
+    }
+    .sub-menu{
+      background: $bgColor;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 12px;
+      .user-info{
+        display: flex;
+        align-items: center;
+        h2{
+          font-weight: 400;
+          color: $textColor;
+          font-size: 1.2rem;
+        }
+        img{
+          width: 60px;
+          height: 60px;
+          cursor: auto;
+        }
+      }
+      hr{
+        border: 0;
+        height: 1px;
+        width: 100%;
+        background: $lineColor;
+        margin: 15px 0 10px;
+      }
+    }
+    .sub-menu-link{
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: $textColor;
+      margin: 0.8rem 0;
+      cursor: pointer;
+      transition: color 0.5s;
+      &:hover{
+        color: $textColorActive;
+      }
+      p{
+        width: 100%;
+        font-size: 1rem;
+        margin-bottom: 0;
+        font-weight: 400;
+        transition: font-weight 0.3s;
+        &:hover{
+          font-weight: 600;
+        }
+      }
+      i{
+        width: 40px;
+        background: $borderColor;
+        border-radius: 50%;
+        padding: 0.5rem;
+        margin-right: 15px;
+      }
+      span{
+        i{
+          width: 1.4rem;
+          border-radius: 0;
+          padding: 0;
+          margin: 0;
+          background: none;
+          transition: transform 0.3s;
+          &:hover{
+            transform: translateX(5px);
+          }
+        }
+      }
+    }
+  }
+  .sign-off{
+    cursor: pointer;
+    margin: auto; 
+    i{
+      padding-left: 20px;
+      color: $textColor;
+      font-size: 1.7rem;
+      transition: color 0.3s;
+      transition: transform 0.3s;
+      &:hover{
+        color: $ColorRedWhite;
+        transform: translateX(5px);
+      }
+    }
+    @include movil{
+      display: none;
+    }
+  }
+}
+
+@keyframes notificationsInto {
+  0%{
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(-25deg);
+  }
+  100%{
+    transform: rotate(25deg);
+  }
+}

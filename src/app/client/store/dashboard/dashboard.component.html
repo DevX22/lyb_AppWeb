@@ -1,0 +1,102 @@
+<div class="div_body">
+  <!--Inicio Header-->
+  <header>
+    <!--Inicio Menu-Header-->
+    <div class="nav__header">
+      <!--Logo-->
+      <div>
+        <img src="./../../../assets/img/LogoPrimary.png" alt="" class="logo" />
+      </div>
+      <!--Logo-->
+
+      <!--icon-bar-->
+      <input type="checkbox" id="check" />
+      <label for="check" class="bar-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <!--icon-bar-->
+
+      <!--Menu-->
+      <ul class="nav-menu">
+        <li><a href="login/register">Crea tu cuenta</a></li>
+        <li><a href="login">Ingresa</a></li>
+        <li><a href="">Mis compras</a></li>
+      </ul>
+
+      <div class="user" *ngIf="user">
+        <img class="header_avatar" src="../../../../assets/img/image-avatar.png" alt="" />
+        {{ user.nombreApellido }}
+        <br />
+        <button class="btn_salir" (click)="logout()">Salir</button>
+      </div>
+
+      <div *ngIf="!user"></div>
+
+      <!--Menu-->
+    </div>
+    <!--Final Menu-Header-->
+
+  </header>
+  <!--Final Header-->
+
+  <!-- Inicio img-Carrusel-->
+  <app-custom-carrusel *ngIf="imagenes.length > 0"
+    [imagenes]="imagenes" 
+    [clasecss]="'slider_img'" 
+    [isAnimated]="true" 
+    [timer]="2000">
+  </app-custom-carrusel>
+  <!-- Fin img-Carrusel-->
+
+  <!-- Inicio filtro Producto-->
+  <div class="producto_container">
+    <div class="filtro_categoria active">
+      <div class="filtro_container" >
+        <ul class="filtro_list">
+          <li class="filtro_item">
+            <div class="titulo-item" >
+              <p>Categoria</p>
+              <i class="icons">➕ </i>
+            </div>
+            <div class="contenido_filtro">
+              <ul class="lista">
+                <li *ngFor="let c of categorias">
+                  <label class="content_Check">
+                    {{c.categoria}}
+                    <input />
+                    <span class="check_Mark"></span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Inicio filtro Producto-->
+    <div class="productos_catalogo mt-4">
+      <div class="productos">
+        <div class="producto_item" *ngFor="let p of productos">
+          <app-custom-carrusel [imagenes]="p.imgProducto" [clasecss]="'imagen_producto'" [timer]="2000" ></app-custom-carrusel>
+          <div class="tarjeta_body">
+            <ul class="lista_color_container">
+              <li *ngFor="let cl of p.colorProducto">
+                <span class="color_elemento active" style="background-color: #800000">{{ cl.colorCode }}</span>
+                <span class="color_nombre">{{ cl.colorName }}</span>
+              </li>
+            </ul>
+            <a class="link" href="">
+              <h5 class="nombre_producto">{{ p.producto }}</h5>
+            </a>
+            <div class="precio_descuento">
+              <div class="precio_producto">
+                <p class="actual">S/ {{ p.precioVenta }}</p>
+              </div>
+            </div>
+            <button class="agregar_carrito">añadir a bolsa</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

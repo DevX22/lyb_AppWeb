@@ -1,0 +1,148 @@
+<div class="sidebar close">
+  <div class="logo-details">
+    <i
+      ><img
+        src="https://drive.google.com/uc?id=1uPvjKB5ghdrGQ6vr_sZPbOh4JuTK60_D"
+        alt="logoLyB"
+    /></i>
+    <!-- <span class="logo_name">LyB Store</span> -->
+  </div>
+  <ul class="nav-links">
+    <!-- <li>
+      <a href="#">
+        <i class="fa-solid fa-gauge-high"></i>
+        <span class="link_name">Dashboard</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" href="#">Dashboard</a></li>
+      </ul>
+    </li> -->
+    <div class="text-serapacion">
+      <span class="text">Almacen</span>
+    </div>
+    <li (click)="activeSubMenuOne()" id="subMenu-one">
+      <div class="iocn-link">
+        <a>
+          <i class="fa-solid fa-shoe-prints"></i>
+          <span class="link_name">Producto</span>
+        </a>
+        <i class="bx bxs-chevron-down arrow"></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name">Producto</a></li>
+        <li><a href="/#/dahsboard/mant/producto">Registro</a></li>
+        <li><a>ingreso - proximo</a></li>
+        <li><a>salida - proximo</a></li>
+      </ul>
+    </li>
+    <li (click)="activeSubMenuTwo()" id="subMenu-two">
+      <div class="iocn-link">
+        <a>
+          <i class="fa-solid fa-scissors"></i>
+          <span class="link_name">Material</span>
+        </a>
+        <i class="bx bxs-chevron-down arrow"></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name">Material</a></li>
+        <li><a href="/#/dahsboard/mant/material">Registro</a></li>
+        <li><a href="/#/dahsboard/mant/ingreso/material">Ingreso</a></li>
+        <li><a>Salida - proximo</a></li>
+      </ul>
+    </li>
+    <li (click)="activeSubMenuThree()" id="subMenu-three">
+      <div class="iocn-link">
+        <a>
+          <i class="fa-solid fa-toolbox"></i>
+          <span class="link_name">Maquina</span>
+        </a>
+        <i class="bx bxs-chevron-down arrow"></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name">Maquina</a></li>
+        <li><a href="/#/dahsboard/mant/maquina">Registro</a></li>
+        <li><a>Mantenimiento - proximo</a></li>
+        <li><a>Pago Alquiler - proximo</a></li>
+      </ul>
+    </li>
+    <div *ngIf="users.rolUser == 'Administrador'" class="text-serapacion">
+      <span class="text">Repostes</span>
+    </div>
+    <li
+      *ngIf="users.rolUser == 'Administrador'"
+      (click)="activeSubMenuFour()"
+      id="subMenu-four"
+    >
+      <div class="iocn-link">
+        <a>
+          <i class="fa-solid fa-file-contract"></i>
+          <span class="link_name">Reportes</span>
+        </a>
+        <i class="bx bxs-chevron-down arrow"></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name">Reportes</a></li>
+        <li><a>materiales - proximo</a></li>
+        <li><a>producto - proximo</a></li>
+        <li><a>maquina - proximo</a></li>
+      </ul>
+    </li>
+    <div *ngIf="users.rolUser == 'Administrador'" class="text-serapacion">
+      <span class="text">Admin</span>
+    </div>
+    <!-- <li>
+      <a href="#">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span class="link_name">Analisis Estadistico</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" href="#">Analisis Estadistico</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fa-solid fa-chart-column"></i>
+        <span class="link_name">Gafricos Estadistico</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" href="#">Gafricos Estadistico</a></li>
+      </ul>
+    </li> -->
+    <li
+      *ngIf="users.rolUser == 'Administrador'"
+      (click)="activeSubMenuFive()"
+      id="subMenu-five"
+    >
+      <div class="iocn-link">
+        <a>
+          <i class="fa-solid fa-gear"></i>
+          <span class="link_name">Registros</span>
+        </a>
+        <i class="bx bxs-chevron-down arrow"></i>
+      </div>
+      <ul class="sub-menu">
+        <li><a class="link_name">Registros</a></li>
+        <li><a>usuarios - proximo</a></li>
+        <li><a href="/#/dahsboard/mant/empresa">Empresas</a></li>
+        <li><a>Rol Usuarios - proximo</a></li>
+        <li><a>Rol Personas - proximo</a></li>
+        <li><a>Tipo Direccion y Telefono - porximo</a></li>
+        <li><a>Tipo Documento - proximo</a></li>
+      </ul>
+    </li>
+    <li>
+      <div class="profile-details">
+        <div class="profile-content">
+          <img src="{{ users.avatar }}" alt="avatarLyB" />
+        </div>
+        <div class="name-job">
+          <div style="font-size: 1em" class="profile_name">
+            {{ users.nombreApellido }}
+          </div>
+          <div class="job">{{ users.rolUser }}</div>
+        </div>
+        <i (click)="cerrarSession()" class="fa-solid fa-arrow-right-from-bracket bx bx-log-out"></i>
+      </div>
+    </li>
+  </ul>
+</div>
