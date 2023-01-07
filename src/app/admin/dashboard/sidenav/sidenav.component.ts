@@ -41,7 +41,7 @@ export class SidenavComponent implements OnInit {
 
   cerrarSession(){
     this._sessionService.signOff();
-    this._router.navigate(["/admin"]);
+    this._router.navigate(["/admin/loguin"]);
   }
 
   llenarDataUser(){

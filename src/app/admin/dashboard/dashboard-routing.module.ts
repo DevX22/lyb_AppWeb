@@ -13,9 +13,14 @@ const routes: Routes = [
     component:LayoutComponent,
     children:[
       {
-        path:'',
-        canActivate:[AuthGuard],
+        path:'dashboard',
+        canActivate:[AdminGuard||VentaGuard],
         component:WorkspaceComponent
+      },
+      {
+        path:'mant',
+        canActivate:[AdminGuard],
+        loadChildren:()=> import("../mantenimiento/mantenimiento.module").then(x=>x.MantenimientoModule)
       }
     ]
   }

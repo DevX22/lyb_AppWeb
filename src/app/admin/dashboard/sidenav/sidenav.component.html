@@ -20,11 +20,11 @@
     <div class="text-serapacion">
       <span class="text">Almacen</span>
     </div>
-    <li (click)="activeSubMenuOne()" id="subMenu-one">
+    <li id="subMenu-one">
       <div class="iocn-link">
         <a>
           <i class="fa-solid fa-shoe-prints"></i>
-          <span class="link_name">Producto</span>
+          <span (click)="activeSubMenuOne()" class="link_name">Producto</span>
         </a>
         <i class="bx bxs-chevron-down arrow"></i>
       </div>
@@ -35,11 +35,11 @@
         <li><a>salida - proximo</a></li>
       </ul>
     </li>
-    <li (click)="activeSubMenuTwo()" id="subMenu-two">
+    <li id="subMenu-two">
       <div class="iocn-link">
         <a>
           <i class="fa-solid fa-scissors"></i>
-          <span class="link_name">Material</span>
+          <span (click)="activeSubMenuTwo()" class="link_name">Material</span>
         </a>
         <i class="bx bxs-chevron-down arrow"></i>
       </div>
@@ -50,11 +50,11 @@
         <li><a>Salida - proximo</a></li>
       </ul>
     </li>
-    <li (click)="activeSubMenuThree()" id="subMenu-three">
+    <li id="subMenu-three">
       <div class="iocn-link">
         <a>
           <i class="fa-solid fa-toolbox"></i>
-          <span class="link_name">Maquina</span>
+          <span (click)="activeSubMenuThree()" class="link_name">Maquina</span>
         </a>
         <i class="bx bxs-chevron-down arrow"></i>
       </div>
@@ -70,13 +70,12 @@
     </div>
     <li
       *ngIf="users.rolUser == 'Administrador'"
-      (click)="activeSubMenuFour()"
       id="subMenu-four"
     >
       <div class="iocn-link">
         <a>
           <i class="fa-solid fa-file-contract"></i>
-          <span class="link_name">Reportes</span>
+          <span (click)="activeSubMenuFour()" class="link_name">Reportes</span>
         </a>
         <i class="bx bxs-chevron-down arrow"></i>
       </div>
@@ -88,7 +87,7 @@
       </ul>
     </li>
     <div *ngIf="users.rolUser == 'Administrador'" class="text-serapacion">
-      <span class="text">Admin</span>
+      <span class="text">Mantenimiento</span>
     </div>
     <!-- <li>
       <a href="#">
@@ -110,13 +109,12 @@
     </li> -->
     <li
       *ngIf="users.rolUser == 'Administrador'"
-      (click)="activeSubMenuFive()"
       id="subMenu-five"
     >
       <div class="iocn-link">
         <a>
           <i class="fa-solid fa-gear"></i>
-          <span class="link_name">Registros</span>
+          <span (click)="activeSubMenuFive()" class="link_name">Registros</span>
         </a>
         <i class="bx bxs-chevron-down arrow"></i>
       </div>
@@ -124,7 +122,7 @@
         <li><a class="link_name">Registros</a></li>
         <li><a>usuarios - proximo</a></li>
         <li><a href="/#/dahsboard/mant/empresa">Empresas</a></li>
-        <li><a>Rol Usuarios - proximo</a></li>
+        <li><a [routerLink]="['/admin/mant/categorias']">Categorias</a></li>
         <li><a>Rol Personas - proximo</a></li>
         <li><a>Tipo Direccion y Telefono - porximo</a></li>
         <li><a>Tipo Documento - proximo</a></li>

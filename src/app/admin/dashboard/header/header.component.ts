@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
 
   cerrarSesion(){
     this._sesionService.signOff();
-    this._router.navigate(["/admin"]);
+    this._router.navigate(["/admin/loguin"]);
   }
 
   muneNotifications(){

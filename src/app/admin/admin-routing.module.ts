@@ -6,20 +6,14 @@ import { VentaGuard } from '../share/guard/venta-guard.guard';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'loguin',
     loadChildren:()=>import("../auth/admin-auth/admin-auth.module").then(x=>x.AdminAuthModule),
   }
   ,
   {
-    path:'dashboard',
+    path:'',
     canActivate:[AdminGuard||VentaGuard],
     loadChildren:()=> import("./dashboard/dashboard.module").then(x=>x.DashboardModule)
-  }
-  ,
-  {
-    path:'mant',
-    canActivate:[AdminGuard],
-    loadChildren:()=> import("./mantenimiento/mantenimiento.module").then(x=>x.MantenimientoModule)
   }
 ];
 
