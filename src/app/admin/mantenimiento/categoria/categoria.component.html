@@ -1,12 +1,33 @@
 <div class="card">
   <div class="toolbar-container">
     <div class="toolbar">
-      <div class="toolbar-left">
-
-      </div>
-      <div class="toolbar-right">
+      <div class="toolbar-group-left">
         <button type="button" class="btn btn-success"><i class="fa-solid fa-plus"></i> Nuevo</button>
       </div>
+      <div class="toolbar-group-right">
+      </div>
+    </div>
+  </div>
+  <div class="container-table">
+    <div class="container-header-title">
+      <div class="data-title">
+        <tr class="container-title">
+          <th class="name">Categoria</th>
+          <th class="status">Status</th>
+          <th class="edit"></th>
+        </tr>
+      </div>
+    </div>
+    <div class="container-data">
+      <tr class="data" *ngFor="let item of cities">
+        <td class="name">{{item.name}}</td>
+        <!-- <td><img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" /></td> -->
+        <td class="status">INSTOCK</td>
+        <td class="edit">
+          <button type="button" class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i></button>
+          <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+        </td>
+      </tr>
     </div>
   </div>
 </div>
