@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PageClientRoutingModule } from './page-client-routing.module';
 import { PageMainComponent } from './page-main/page-main.component';
 import { LoadJsService } from 'src/app/service/load-js.service';
+import { NgOptimizedImage } from "@angular/common";
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { LoadJsService } from 'src/app/service/load-js.service';
   ],
   imports: [
     CommonModule,
-    PageClientRoutingModule
+    PageClientRoutingModule,
+    NgOptimizedImage
   ],
   providers:[LoadJsService]
   

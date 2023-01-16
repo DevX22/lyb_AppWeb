@@ -299,7 +299,7 @@ header {
 }
 
 //resposive
-@media screen and(min-width:768px) {
+@media screen and (min-width: 768px) {
   .logo {
     margin-left: 50px;
   }
@@ -343,7 +343,7 @@ header {
     width: 100%;
   }
 }
-@media screen and(max-width:768px) {
+@media screen and (max-width: 768px) {
   .filtro_categoria {
     display: none;
   }
