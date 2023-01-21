@@ -8,6 +8,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { LayoutComponent } from './layout/layout.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
+import { NgOptimizedImage } from "@angular/common";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { WorkspaceComponent } from './workspace/workspace.component';
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    NgOptimizedImage
   ]
 })
 export class DashboardModule { }

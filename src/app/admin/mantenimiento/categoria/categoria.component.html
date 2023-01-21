@@ -19,10 +19,10 @@
       </div>
     </div>
     <div class="container-data">
-      <tr class="data" *ngFor="let item of cities">
-        <td class="name">{{item.name}}</td>
+      <tr class="data" *ngFor="let categoria of categorias">
+        <td class="name">{{categoria.categoria}}</td>
         <!-- <td><img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" /></td> -->
-        <td class="status">INSTOCK</td>
+        <td class="status">Activo</td>
         <td class="edit">
           <button type="button" class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i></button>
           <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>

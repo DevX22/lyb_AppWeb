@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriaModel } from 'src/app/share/model/categoria.model';
+import { CategoriaService } from '../../service/categoria.service';
 
 interface City {
   name: string,
@@ -12,25 +14,20 @@ interface City {
 })
 export class CategoriaComponent implements OnInit {
 
-  
+  categorias:CategoriaModel[] = [];
 
-  value: boolean = false;
-
-  cities: City[];
-
-  selectedCity?: City;
-
-  constructor() {
-      this.cities = [
-          {name: 'New York', code: 'NY'},
-          {name: 'Rome', code: 'RM'},
-          {name: 'London', code: 'LDN'},
-          {name: 'Istanbul', code: 'IST'},
-          {name: 'Paris', code: 'PRS'}
-      ];
-  }
+  constructor(
+    private _categoriaService:CategoriaService
+  ) {}
 
   ngOnInit(): void {
+    this.listCategorias();
+  }
+
+  listCategorias(){
+    this._categoriaService.getAll().subscribe((data:CategoriaModel[])=>{
+      this.categorias = data;
+    })
   }
 
 }

@@ -13,12 +13,12 @@
         </div>
       </div>
 
-      <img (click)="menuUser()" src="{{user.avatar}}" alt="usuario_avatar">
+      <img (click)="menuUser()" ngSrc="{{user.avatar}}" height="55" width="55" alt="usuario_avatar">
 
       <div class="sub-menu-wrap">
         <div class="sub-menu">
           <div class="user-info">
-            <img src="{{user.avatar}}" alt="user-avatar">
+            <img ngSrc="{{user.avatar}}" height="60" width="60" alt="user-avatar">
             <h2>{{user.nombreApellido}}</h2>
           </div>
           <hr>

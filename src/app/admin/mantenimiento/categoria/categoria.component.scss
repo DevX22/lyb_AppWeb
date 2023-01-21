@@ -1,9 +1,12 @@
 @import '../../../share/const/color_const';
 
+
+
 .card{
   display: block;
   padding: 2rem;
   border-radius: 0px;
+  //background: $bgColor03;
 }
 
 .toolbar{
@@ -49,28 +52,32 @@
 }
 
 .container-data{
-  margin: 1rem;
-  border-bottom: 1px solid $lineColor;
   .data{
     display: flex;
+    margin: 1rem;
+    border-bottom: 1px solid $lineColor;
     td{
       width: 4rem;
       text-align: left;
       margin: 1rem;
+      margin-top: 0;
+      padding-left: 1rem;
       padding-top: 9px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
     }
     .status{
-      width: 8rem;
+      width: 6rem;
+      margin-left: 0;
     }
     .name{
-      width: calc(100% - 18rem);
+      width: calc(100% - 16rem);
     }
     .edit{
+      display: flex;
       width: 10rem;
-      align-content: center;
+      justify-content: center;
       padding-top: 0px;
       button{
         margin-right: 10px;
