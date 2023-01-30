@@ -19,8 +19,11 @@ export class CategoriaService {
     return this.http.get<CategoriaModel[]>(`${this.url}list`);
   }
 
-  Create(obj:CategoriaModel){
-    
+  Create(obj:CategoriaModel):Observable<boolean>{
+    return this.http.post<boolean>(`${this.url}create`, obj);
   }
 
+  update(obj:CategoriaModel):Observable<boolean>{
+    return this.http.put<boolean>(`${this.url}update`, obj);
+  }
 }

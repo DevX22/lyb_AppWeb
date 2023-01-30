@@ -1,0 +1,65 @@
+<form [formGroup]="formCategoria">
+  <br />
+  <div class="row">
+    <div class="col-12">
+      <div class="card text-light bg-dark mb-3" style="border-color: lightgray">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 form-group">
+              <label for="id">ID</label>
+              <input
+                type="number"
+                placeholder="0"
+                class="form-control"
+                formControlName="id"
+              />
+            </div>
+            <div class="col-12 form-group">
+              <label for="categoria">Categoria</label>
+              <input
+                type="text"
+                placeholder="Escriba la categoria"
+                class="form-control"
+                formControlName="categoria"
+                [ngClass]="{
+                  'is-invalid': submitted && f['categoria'].errors,
+                  'is-valid': submitted && f['categoria'].valid
+                }"
+              />
+              <!-- {{ f["categoria"].errors | json }} -->
+              <div
+                *ngIf="submitted && f['categoria'].errors"
+                class="text-danger"
+              >
+                <div *ngIf="submitted && f['categoria'].errors['required']">
+                  este campo es requerido
+                </div>
+                <div *ngIf="submitted && f['categoria'].errors['pattern']">
+                  Solo se admiten textos
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="text-center mb-5">
+  <br />
+  <button
+    [disabled]="submitted && f['categoria'].errors"
+    (click)="save()"
+    class="btn btn-success btn-lg"
+  >
+    <i class="fas fa-save"></i>Guardar
+  </button>
+  <button
+    (click)="closeModal(false)"
+    style="margin-left: 40px"
+    class="btn btn-danger btn-lg"
+  >
+    Cerrar
+  </button>
+</div>

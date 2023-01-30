@@ -61,7 +61,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getProductos() {
-    this.productoService.get().subscribe({
+    this.productoService.getAll().subscribe({
       next: (data) => {
         this.productos = data;
       },

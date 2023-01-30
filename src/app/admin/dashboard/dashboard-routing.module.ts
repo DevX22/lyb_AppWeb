@@ -8,26 +8,29 @@ import { WorkspaceComponent } from './workspace/workspace.component';
 
 const routes: Routes = [
   {
-    path:'',
-    canActivate:[AuthGuard],
-    component:LayoutComponent,
-    children:[
+    path: '',
+    canActivate: [AuthGuard],
+    component: LayoutComponent,
+    children: [
       {
-        path:'dashboard',
-        canActivate:[AdminGuard||VentaGuard],
-        component:WorkspaceComponent
+        path: 'dashboard',
+        canActivate: [AdminGuard || VentaGuard],
+        component: WorkspaceComponent,
       },
       {
-        path:'mant',
-        canActivate:[AdminGuard],
-        loadChildren:()=> import("../mantenimiento/mantenimiento.module").then(x=>x.MantenimientoModule)
-      }
-    ]
-  }
+        path: 'mant',
+        canActivate: [AdminGuard],
+        loadChildren: () =>
+          import('../mantenimiento/mantenimiento.module').then(
+            (x) => x.MantenimientoModule
+          ),
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DashboardRoutingModule { }
+export class DashboardRoutingModule {}

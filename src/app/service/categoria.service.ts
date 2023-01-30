@@ -15,4 +15,6 @@ export class CategoriaService {
       `${environment.uri_back_end}/categoria/list`
     );
   }
+
+
 }

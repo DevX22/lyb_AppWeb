@@ -2,7 +2,9 @@
   <div class="logo-details">
     <i
       ><img
-        ngSrc="https://drive.google.com/uc?id=1uPvjKB5ghdrGQ6vr_sZPbOh4JuTK60_D" height="75" width="97"
+        ngSrc="https://drive.google.com/uc?id=1uPvjKB5ghdrGQ6vr_sZPbOh4JuTK60_D"
+        height="75"
+        width="97"
         alt="logoLyB"
     /></i>
     <!-- <span class="logo_name">LyB Store</span> -->
@@ -30,7 +32,7 @@
       </div>
       <ul class="sub-menu">
         <li><a class="link_name">Producto</a></li>
-        <li><a href="/#/dahsboard/mant/producto">Registro</a></li>
+        <li><a [routerLink]="['/admin/mant/productos']">Registro</a></li>
         <li><a>ingreso - proximo</a></li>
         <li><a>salida - proximo</a></li>
       </ul>
@@ -45,8 +47,8 @@
       </div>
       <ul class="sub-menu">
         <li><a class="link_name">Material</a></li>
-        <li><a href="/#/dahsboard/mant/material">Registro</a></li>
-        <li><a href="/#/dahsboard/mant/ingreso/material">Ingreso</a></li>
+        <li><a href="">Registro</a></li>
+        <li><a href="">Ingreso</a></li>
         <li><a>Salida - proximo</a></li>
       </ul>
     </li>
@@ -60,7 +62,7 @@
       </div>
       <ul class="sub-menu">
         <li><a class="link_name">Maquina</a></li>
-        <li><a href="/#/dahsboard/mant/maquina">Registro</a></li>
+        <li><a href="">Registro</a></li>
         <li><a>Mantenimiento - proximo</a></li>
         <li><a>Pago Alquiler - proximo</a></li>
       </ul>
@@ -68,10 +70,7 @@
     <div *ngIf="users.rolUser == 'Administrador'" class="text-serapacion">
       <span class="text">Repostes</span>
     </div>
-    <li
-      *ngIf="users.rolUser == 'Administrador'"
-      id="subMenu-four"
-    >
+    <li *ngIf="users.rolUser == 'Administrador'" id="subMenu-four">
       <div class="iocn-link">
         <a>
           <i class="fa-solid fa-file-contract"></i>
@@ -107,10 +106,7 @@
         <li><a class="link_name" href="#">Gafricos Estadistico</a></li>
       </ul>
     </li> -->
-    <li
-      *ngIf="users.rolUser == 'Administrador'"
-      id="subMenu-five"
-    >
+    <li *ngIf="users.rolUser == 'Administrador'" id="subMenu-five">
       <div class="iocn-link">
         <a>
           <i class="fa-solid fa-gear"></i>
@@ -121,7 +117,7 @@
       <ul class="sub-menu">
         <li><a class="link_name">Registros</a></li>
         <li><a>usuarios - proximo</a></li>
-        <li><a href="/#/dahsboard/mant/empresa">Empresas</a></li>
+        <li><a [routerLink]="['/admin/mant/proveedores']">Proveedores</a></li>
         <li><a [routerLink]="['/admin/mant/categorias']">Categorias</a></li>
         <li><a>Rol Personas - proximo</a></li>
         <li><a>Tipo Direccion y Telefono - porximo</a></li>
@@ -131,7 +127,12 @@
     <li>
       <div class="profile-details">
         <div class="profile-content">
-          <img ngSrc="{{ users.avatar }}" height="52" width="52" alt="avatarLyB" />
+          <img
+            ngSrc="{{ users.avatar }}"
+            height="52"
+            width="52"
+            alt="avatarLyB"
+          />
         </div>
         <div class="name-job">
           <div style="font-size: 1em" class="profile_name">
@@ -139,7 +140,10 @@
           </div>
           <div class="job">{{ users.rolUser }}</div>
         </div>
-        <i (click)="cerrarSession()" class="fa-solid fa-arrow-right-from-bracket bx bx-log-out"></i>
+        <i
+          (click)="cerrarSession()"
+          class="fa-solid fa-arrow-right-from-bracket bx bx-log-out"
+        ></i>
       </div>
     </li>
   </ul>

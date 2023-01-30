@@ -5,15 +5,14 @@ import { environment } from 'src/environments/environment';
 import { Producto } from '../dto/producto/producto.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductoService {
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http:HttpClient
-  ) { }
-
-  get(): Observable<Producto[]>{
-    return this.http.get<Producto[]>(`${environment.uri_back_end}/producto/list`);
+  getAll(): Observable<Producto[]> {
+    return this.http.get<Producto[]>(
+      `${environment.uri_back_end}/producto/list`
+    );
   }
 }

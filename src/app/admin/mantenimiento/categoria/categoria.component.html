@@ -2,10 +2,15 @@
   <div class="toolbar-container">
     <div class="toolbar">
       <div class="toolbar-group-left">
-        <button type="button" class="btn btn-success"><i class="fa-solid fa-plus"></i> Nuevo</button>
+        <button
+          (click)="create(EditAndNew)"
+          type="button"
+          class="btn btn-success"
+        >
+          <i class="fa-solid fa-plus"></i> Nuevo
+        </button>
       </div>
-      <div class="toolbar-group-right">
-      </div>
+      <div class="toolbar-group-right"></div>
     </div>
   </div>
   <div class="container-table">
@@ -20,14 +25,51 @@
     </div>
     <div class="container-data">
       <tr class="data" *ngFor="let categoria of categorias">
-        <td class="name">{{categoria.categoria}}</td>
+        <td class="name">{{ categoria?.categoria }}</td>
         <!-- <td><img [src]="'assets/showcase/images/demo/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" /></td> -->
         <td class="status">Activo</td>
         <td class="edit">
-          <button type="button" class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i></button>
-          <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+          <button
+            (click)="edit(categoria, EditAndNew)"
+            type="button"
+            class="btn btn-primary"
+          >
+            <i class="fa-regular fa-pen-to-square"></i>
+          </button>
+          <button
+            (click)="delete(categoria)"
+            type="button"
+            class="btn btn-danger"
+          >
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
         </td>
       </tr>
     </div>
   </div>
 </div>
+
+<!-- Edit and New -->
+<ng-template class="ng-modal-templete" #EditAndNew>
+  <div class="modal-header text-light bg-dark">
+    <div style="margin-left: auto">
+      <h4 class="modal-title pull-left">
+        {{ accionModal }}
+      </h4>
+    </div>
+    <button
+      type="button"
+      class="btn-close btn-close-white"
+      aria-label="Close"
+      (click)="modalRef?.hide()"
+    >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body bg-dark">
+    <app-categoria-edit-new
+      [categoria]="categoriaSelect"
+      (closeModalEmitter)="resModalEmiter($event)"
+    ></app-categoria-edit-new>
+  </div>
+</ng-template>

@@ -1,0 +1,558 @@
+<form [formGroup]="proveedorForm">
+  <br />
+  <div class="row">
+    <div class="col-12">
+      <div class="card text-light bg-dark mb-3" style="border-color: lightgray">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6 form-group">
+              <label for="razonSocial">Razon social</label>
+              <input
+                style="text-transform: uppercase"
+                value=""
+                onkeyup="javascript:this.value=this.value.toUpperCase();"
+                type="text"
+                placeholder="Razon social registrada"
+                class="form-control bg-gradient-secondary"
+                formControlName="razonSocial"
+                [ngClass]="{
+                  'is-invalid': submitted && f['razonSocial'].errors,
+                  'is-valid': submitted && f['razonSocial'].valid
+                }"
+              />
+              <div
+                *ngIf="submitted && f['razonSocial'].errors"
+                class="text-danger"
+              >
+                <div *ngIf="submitted && f['razonSocial'].errors['required']">
+                  este campo es requerido
+                </div>
+                <div *ngIf="submitted && f['razonSocial'].errors['pattern']">
+                  Solo se admiten texto, punto y espacios
+                </div>
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label for="nombreComercial">Nombre Comercial</label>
+              <input
+                type="text"
+                placeholder="Nombre de su empresa"
+                class="form-control"
+                formControlName="nombreComercial"
+                [ngClass]="{
+                  'is-invalid': submitted && f['nombreComercial'].errors,
+                  'is-valid': submitted && f['nombreComercial'].valid
+                }"
+              />
+              <div
+                *ngIf="submitted && f['nombreComercial'].errors"
+                class="text-danger"
+              >
+                <div
+                  *ngIf="submitted && f['nombreComercial'].errors['required']"
+                >
+                  este campo es requerido
+                </div>
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label for="ruc">RUC</label>
+              <input
+                type="text"
+                placeholder="Numero de ruc"
+                class="form-control"
+                formControlName="ruc"
+                [ngClass]="{
+                  'is-invalid': submitted && f['ruc'].errors,
+                  'is-valid': submitted && f['ruc'].valid
+                }"
+              />
+              <div *ngIf="submitted && f['ruc'].errors" class="text-danger">
+                <div *ngIf="submitted && f['ruc'].errors['required']">
+                  este campo es requerido
+                </div>
+                <div *ngIf="submitted && f['ruc'].errors['pattern']">
+                  Solo numeros del 0 al 9
+                </div>
+                <div *ngIf="submitted && f['ruc'].errors['maxLength']">
+                  Maximo de digitos 11
+                </div>
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label for="direccion">Dirección</label>
+              <input
+                type="text"
+                placeholder="Direccion de su empresa"
+                class="form-control"
+                formControlName="direccion"
+                [ngClass]="{
+                  'is-invalid': submitted && f['direccion'].errors,
+                  'is-valid': submitted && f['direccion'].valid
+                }"
+              />
+              <div
+                *ngIf="submitted && f['direccion'].errors"
+                class="text-danger"
+              >
+                <div *ngIf="submitted && f['direccion'].errors['required']">
+                  este campo es requerido
+                </div>
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label for="celular">Celular</label>
+              <input
+                type="text"
+                placeholder="Numero de Celular"
+                class="form-control"
+                formControlName="celular"
+                [ngClass]="{
+                  'is-invalid': submitted && f['celular'].errors,
+                  'is-valid': submitted && f['celular'].valid
+                }"
+              />
+              <div *ngIf="submitted && f['celular'].errors" class="text-danger">
+                <div *ngIf="submitted && f['celular'].errors['required']">
+                  este campo es requerido
+                </div>
+                <div *ngIf="submitted && f['celular'].errors['pattern']">
+                  Solo numeros del 0 al 9
+                </div>
+                <div *ngIf="submitted && f['celular'].errors['maxlength']">
+                  Maximo de digitos 9
+                </div>
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label for="whatsapp">Whatsapp</label>
+              <input
+                type="text"
+                placeholder="Numero de whatsapp"
+                class="form-control"
+                formControlName="whatsapp"
+                [ngClass]="{
+                  'is-invalid': submitted && f['whatsapp'].errors,
+                  'is-valid': submitted && f['whatsapp'].valid
+                }"
+              />
+              <div
+                *ngIf="submitted && f['whatsapp'].errors"
+                class="text-danger"
+              >
+                <div *ngIf="submitted && f['whatsapp'].errors['pattern']">
+                  Solo numeros del 0 al 9
+                </div>
+                <div *ngIf="submitted && f['whatsapp'].errors['maxlength']">
+                  Maximo de digitos 9
+                </div>
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label for="fijo">Tel. Fijo</label>
+              <input
+                type="text"
+                placeholder="Numero de Tel. fijo"
+                class="form-control"
+                formControlName="fijo"
+                [ngClass]="{
+                  'is-invalid': submitted && f['fijo'].errors,
+                  'is-valid': submitted && f['fijo'].valid
+                }"
+              />
+              <div *ngIf="submitted && f['fijo'].errors" class="text-danger">
+                <div *ngIf="submitted && f['fijo'].errors['pattern']">
+                  Solo numeros del 0 al 9
+                </div>
+                <div *ngIf="submitted && f['fijo'].errors['maxlength']">
+                  Maximo de digitos 6
+                </div>
+              </div>
+            </div>
+            <div class="col-6 form-group">
+              <label for="correo">Email</label>
+              <input
+                type="email"
+                placeholder="Correo electronico"
+                class="form-control"
+                formControlName="correo"
+                [ngClass]="{
+                  'is-invalid': submitted && f['correo'].errors,
+                  'is-valid': submitted && f['correo'].valid
+                }"
+              />
+              <div *ngIf="submitted && f['correo'].errors" class="text-danger">
+                <div *ngIf="submitted && f['correo'].errors['email']">
+                  El correo no tiene un formato valido
+                </div>
+              </div>
+            </div>
+            <!-- PERSONA -->
+            <div class="accordion mt-3" id="accordionExample">
+              <div class="accordion-item bg-dark">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    DATOS DEL REPRESENTANTE
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div
+                    formGroupName="representate"
+                    class="card text-light bg-dark m-2"
+                    style="border: 0"
+                  >
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-6 form-group">
+                          <label for="nombre">Nombre</label>
+                          <input
+                            type="text"
+                            placeholder="Nombre representante"
+                            class="form-control"
+                            formControlName="nombre"
+                            [ngClass]="{
+                              'is-invalid': submitted && r['nombre'].errors,
+                              'is-valid': submitted && r['nombre'].valid
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && r['nombre'].errors"
+                            class="text-danger"
+                          >
+                            <div
+                              *ngIf="
+                                submitted && r['nombre'].errors['required']
+                              "
+                            >
+                              este campo es requerido
+                            </div>
+                            <div
+                              *ngIf="submitted && r['nombre'].errors['pattern']"
+                            >
+                              Solo se admiten textos
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 form-group">
+                          <label for="apellidoPaterno">Apellido paterno</label>
+                          <input
+                            type="text"
+                            placeholder="Ingrese el apellido paterno"
+                            class="form-control"
+                            formControlName="apellidoPaterno"
+                            [ngClass]="{
+                              'is-invalid':
+                                submitted && r['apellidoPaterno'].errors,
+                              'is-valid':
+                                submitted && r['apellidoPaterno'].valid
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && r['apellidoPaterno'].errors"
+                            class="text-danger"
+                          >
+                            <div
+                              *ngIf="
+                                submitted &&
+                                r['apellidoPaterno'].errors['required']
+                              "
+                            >
+                              este campo es requerido
+                            </div>
+                            <div
+                              *ngIf="
+                                submitted &&
+                                r['apellidoPaterno'].errors['pattern']
+                              "
+                            >
+                              Solo se admiten textos
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 form-group">
+                          <label for="apellidoMaterno">Apellido Materno</label>
+                          <input
+                            type="text"
+                            placeholder="Ingrese el apellido materno"
+                            class="form-control"
+                            formControlName="apellidoMaterno"
+                            [ngClass]="{
+                              'is-invalid':
+                                submitted && r['apellidoMaterno'].errors,
+                              'is-valid':
+                                submitted && r['apellidoMaterno'].valid
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && r['apellidoMaterno'].errors"
+                            class="text-danger"
+                          >
+                            <div
+                              *ngIf="
+                                submitted &&
+                                r['apellidoMaterno'].errors['pattern']
+                              "
+                            >
+                              Solo se admiten textos
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <label for="tipoDocumento">Tipo Documento</label>
+                          <select
+                            class="form-select"
+                            formControlName="tipoDocumento"
+                            placeholder="Selecione"
+                            [ngClass]="{
+                              'is-invalid':
+                                submitted && r['tipoDocumento'].errors,
+                              'is-valid': submitted && r['tipoDocumento'].valid
+                            }"
+                          >
+                            <option
+                              [value]="item.tipoDocumento"
+                              *ngFor="let item of tiposDocumento"
+                            >
+                              {{ item.tipoDocumento }}
+                            </option>
+                          </select>
+                          <div
+                            *ngIf="submitted && r['tipoDocumento'].errors"
+                            class="text-danger"
+                          >
+                            <div
+                              *ngIf="
+                                submitted &&
+                                r['tipoDocumento'].errors['required']
+                              "
+                            >
+                              Campo requerido
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-3 form-group">
+                          <label for="numeroDocumento">N° Documento</label>
+                          <input
+                            type="text"
+                            placeholder="numero de documento"
+                            class="form-control"
+                            formControlName="numeroDocumento"
+                            [ngClass]="{
+                              'is-invalid':
+                                submitted && r['numeroDocumento'].errors,
+                              'is-valid':
+                                submitted && r['numeroDocumento'].valid
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && r['numeroDocumento'].errors"
+                            class="text-danger"
+                          >
+                            <div
+                              *ngIf="
+                                submitted &&
+                                r['numeroDocumento'].errors['pattern']
+                              "
+                            >
+                              Solo se admiten numeros
+                            </div>
+                            <div
+                              *ngIf="
+                                submitted &&
+                                r['numeroDocumento'].errors['maxlength']
+                              "
+                            >
+                              Maximo de digitos 12
+                            </div>
+                            <div
+                              *ngIf="
+                                submitted &&
+                                r['numeroDocumento'].errors['required']
+                              "
+                            >
+                              Campo requerido
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 form-group">
+                          <label for="celular">Celular</label>
+                          <input
+                            type="text"
+                            placeholder="numero de celular"
+                            class="form-control"
+                            formControlName="celular"
+                            [ngClass]="{
+                              'is-invalid': submitted && r['celular'].errors,
+                              'is-valid': submitted && r['celular'].valid
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && r['celular'].errors"
+                            class="text-danger"
+                          >
+                            <div
+                              *ngIf="
+                                submitted && r['celular'].errors['pattern']
+                              "
+                            >
+                              Solo se admiten numeros
+                            </div>
+                            <div
+                              *ngIf="
+                                submitted && r['celular'].errors['maxlength']
+                              "
+                            >
+                              Maximo de digitos 9
+                            </div>
+                            <div
+                              *ngIf="
+                                submitted && r['celular'].errors['required']
+                              "
+                            >
+                              Campo requerido
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-3 form-group">
+                          <label for="whatsapp">Whatsapp</label>
+                          <input
+                            type="text"
+                            placeholder="numero de Whatsapp"
+                            class="form-control"
+                            formControlName="whatsapp"
+                            [ngClass]="{
+                              'is-invalid': submitted && r['whatsapp'].errors,
+                              'is-valid': submitted && r['whatsapp'].valid
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && r['whatsapp'].errors"
+                            class="text-danger"
+                          >
+                            <div
+                              *ngIf="
+                                submitted && r['whatsapp'].errors['pattern']
+                              "
+                            >
+                              Solo se admiten numeros
+                            </div>
+                            <div
+                              *ngIf="
+                                submitted && r['whatsapp'].errors['maxlength']
+                              "
+                            >
+                              Maximo de digitos 9
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-3 form-group">
+                          <label for="fijo">Fijo</label>
+                          <input
+                            type="text"
+                            placeholder="Tel. Fijo"
+                            class="form-control"
+                            formControlName="fijo"
+                            [ngClass]="{
+                              'is-invalid': submitted && r['fijo'].errors,
+                              'is-valid': submitted && r['fijo'].valid
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && r['fijo'].errors"
+                            class="text-danger"
+                          >
+                            <div
+                              *ngIf="submitted && r['fijo'].errors['pattern']"
+                            >
+                              Solo numeros
+                            </div>
+                            <div
+                              *ngIf="submitted && r['fijo'].errors['maxlength']"
+                            >
+                              Maximo de digitos 6
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6 form-group">
+                          <label for="email">Email</label>
+                          <input
+                            type="email"
+                            placeholder="Ingrese su correo electronico"
+                            class="form-control"
+                            formControlName="correo"
+                            [ngClass]="{
+                              'is-invalid': submitted && r['correo'].errors,
+                              'is-valid': submitted && r['correo'].valid
+                            }"
+                          />
+                          <div
+                            *ngIf="submitted && r['correo'].errors"
+                            class="text-danger"
+                          >
+                            <div
+                              *ngIf="submitted && r['correo'].errors['email']"
+                            >
+                              Famato de correo invalido
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <label for="">Fecha Nacimiento</label>
+                          <input
+                            type="text"
+                            placeholder="Datepicker"
+                            class="form-control"
+                            bsDatepicker
+                            name="fechaNacimiento"
+                            formControlName="fechaNacimiento"
+                            [bsConfig]="{
+                              dateInputFormat: 'YYYY-MM-DD',
+                              isAnimated: true,
+                              adaptivePosition: true
+                            }"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- FIN PERSONA -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="text-center mb-5">
+  <br />
+  <button
+    [disabled]="!proveedorForm.valid"
+    (click)="save()"
+    class="btn btn-success btn-lg"
+  >
+    <i class="fas fa-save"></i>Guardar
+  </button>
+
+  <button
+    (click)="closeModal(false)"
+    style="margin-left: 40px"
+    class="btn btn-danger btn-lg"
+  >
+    Cerrar
+  </button>
+</div>
