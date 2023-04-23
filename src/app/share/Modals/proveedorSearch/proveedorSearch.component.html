@@ -1,0 +1,38 @@
+<form>
+  <br />
+  <div class="row">
+    <div class="col-12">
+      <div class="card text-light bg-dark mb-3" style="border-color: lightgray">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 form-group">
+              <label>Nombre del proveedor:</label>
+              <input
+                type="text"
+                name="nombreProveedor"
+                [(ngModel)]="nombreProveedor"
+                (input)="filtrarPorNombre()"
+              />
+            </div>
+            <div class="col-12 form-group">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nombre Comercial</th>
+                    <th>Razon Social</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let proveedor of proveedoresFiltrados">
+                    <td>{{ proveedor.nombreComercial }}</td>
+                    <td>{{ proveedor.razonSocial }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

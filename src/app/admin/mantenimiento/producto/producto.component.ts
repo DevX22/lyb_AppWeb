@@ -61,6 +61,7 @@ export class ProductoComponent implements OnInit {
       this.getAll();
     }
     this.serviceModal.hide();
+    console.log(res);
   }
 
   openModal(temp: TemplateRef<any>) {

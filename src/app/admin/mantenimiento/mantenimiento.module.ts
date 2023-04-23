@@ -17,6 +17,7 @@ import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProveedorEditNewComponent } from './proveedor/proveedor-edit-new/proveedor-edit-new.component';
 import { ProductoComponent } from './producto/producto.component';
 import { ProductoEditNewComponent } from './producto/producto-edit-new/producto-edit-new.component';
+import { SearchProveedorComponent } from '../../share/Modals/proveedorSearch/proveedorSearch.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ProductoEditNewComponent } from './producto/producto-edit-new/producto-
     ModalModule.forRoot(),
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
+    SearchProveedorComponent,
   ],
 })
 export class MantenimientoModule {}

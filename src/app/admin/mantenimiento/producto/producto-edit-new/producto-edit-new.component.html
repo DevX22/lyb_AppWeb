@@ -1,1 +1,148 @@
-<p>producto-edit-new works!</p>
+<form [formGroup]="productoForm">
+  <br />
+  <div class="row">
+    <div class="col-12">
+      <div class="card text-light bg-dark mb-3" style="border-color: lightgray">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-5 form-group">
+              <label for="id">Nombre</label>
+              <input
+                type="text"
+                placeholder="Ingrese el nombre del producto"
+                class="form-control"
+                formControlName="producto"
+              />
+            </div>
+            <div class="col-7 form-group">
+              <label for="categoria">Descripción</label>
+              <input
+                type="text"
+                placeholder="Escriba una descripción corta del producto"
+                class="form-control"
+                formControlName="descripcion"
+                [ngClass]="{
+                  'is-invalid': submitted && f['categoria'].errors,
+                  'is-valid': submitted && f['categoria'].valid
+                }"
+              />
+              <div
+                *ngIf="submitted && f['categoria'].errors"
+                class="text-danger"
+              >
+                <div *ngIf="submitted && f['categoria'].errors['required']">
+                  este campo es requerido
+                </div>
+                <div *ngIf="submitted && f['categoria'].errors['pattern']">
+                  Solo se admiten textos
+                </div>
+              </div>
+            </div>
+            <div class="col-4 form-group">
+              <label for="categoria">Proveedor</label>
+              <input
+                type="text"
+                placeholder="Busque un proveedor"
+                class="form-control"
+                formControlName="proveedor"
+                [ngClass]="{
+                  'is-invalid': submitted && f['categoria'].errors,
+                  'is-valid': submitted && f['categoria'].valid
+                }"
+              />
+              <div
+                *ngIf="submitted && f['categoria'].errors"
+                class="text-danger"
+              >
+                <div *ngIf="submitted && f['categoria'].errors['required']">
+                  este campo es requerido
+                </div>
+                <div *ngIf="submitted && f['categoria'].errors['pattern']">
+                  Solo se admiten textos
+                </div>
+              </div>
+            </div>
+            <div class="col-1 form-groupp">
+              <br />
+              <button
+                [disabled]=""
+                (click)="searchProveedor()"
+                class="btn btn-primary btn"
+              >
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="text-center mb-5">
+  <br />
+  <button [disabled]="" (click)="('save()')" class="btn btn-success btn-lg">
+    <i class="fas fa-save"></i>Guardar
+  </button>
+  <button
+    (click)="closeModal(false)"
+    style="margin-left: 40px"
+    class="btn btn-danger btn-lg"
+  >
+    Cerrar
+  </button>
+</div>
+<!-- Proveedor Search -->
+<!-- <div bsModal #childModalProveedor="bs-modal" class="modal fade" tabindex="-1">
+  <div class="modal-header text-light bg-dark">
+    <div style="margin-left: auto">
+      <h4 class="modal-title pull-left">Selecione al proveedor</h4>
+    </div>
+    <button
+      type="button"
+      class="btn-close btn-close-white"
+      aria-label="Close"
+      (click)="childModalProveedor?.hide()"
+    >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body bg-dark">
+    <app-proveedor-search
+      (closeModalEmitterSecon)="resModalSecon($event)"
+    ></app-proveedor-search>
+  </div>
+</div> -->
+
+<div
+  bsModal
+  #childModalProveedor="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="dialog-sizes-name2"
+  [config]="{ backdrop: 'static' }"
+>
+  <div class="modal-dialog modal-small">
+    <div class="modal-content">
+      <div class="modal-header text-light bg-dark">
+        <h4 id="dialog-sizes-name2" class="modal-title pull-left">
+          Selecione al proveedor
+        </h4>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          aria-label="Close"
+          (click)="childModalProveedor?.hide()"
+        >
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body bg-dark">
+        <app-proveedor-search
+          (closeModalEmitterSecon)="resModalSecon($event)"
+        ></app-proveedor-search>
+      </div>
+    </div>
+  </div>
+</div>
